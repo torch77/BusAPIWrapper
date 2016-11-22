@@ -2,9 +2,10 @@
 #### To Do
 # implement order checking
 # input validation (proper routes, stops, etc)
-# seperate url build and API query into seperate function to be run after input validation
+# Seperate url compilation and API query into seperate function to be run after input validation
 
-#' Function to query service, ewt, wtp, otp endpoints
+#' Function to query service, excess wait time, wait time probability, on time performance API endpoints. Further documention
+#' regarding the database, its capabilities, and origins located here: http://busdataapi1.cloudapp.net/about
 #' @param endpoint String. Endpoint to query one of: service, ewt, wtp, otp
 #' @param year_list Integer vector of years to query (2014, 2015, or 2016)
 #' @param month_list Character vector of months to query in YYYYMMDD or YYYY-MM-DD format
@@ -12,26 +13,27 @@
 #' @param stop_list Character vector of stop ids to query
 #' @param weekend T/F flag for analyzing weekends. True is just weekends, false is no weekends. Not passing is all days
 #' @param period_list Integer vector of periods to query. One or more of:
-#' 1: 7am–10am
-#' 2: 10am–4pm
-#' 3: 4pm–7pm
-#' 4: 7pm–11pm
+#' 1: 7am–10am,
+#' 2: 10am–4pm,
+#' 3: 4pm–7pm,
+#' 4: 7pm–11pm,
 #' 5: 11pm–7am
 #' @param sbs T/F flag for whether to include SBS routes in computations
 #' @param group_list Character vector of fields to aggregate by. One or more of:
-#' year
-#' month
-#' route_id
-#' stop_id
-#' weekend
+#' year,
+#' month,
+#' route_id,
+#' stop_id,
+#' weekend,
 #' period
 #' @param order_list Character vector of fields to sort by. One of: year, month, route_id, stop_id, weekend, period, or
 #' one of the metrics returne from endpoint. See API documentation. Add a hyphen to field to sort in descending order
 #' (e.g. -year)
 #' @param limit Integer. Number of results to return
-#' @param token String. API documentation says this is required but doesn't appear to be so. See API page to obtain one.
+#' @param token String. API documentation says this is required but doesn't appear to be so. See
+#' http://busdataapi1.cloudapp.net/developer to obtain one.
 #'
-#' @return a dataframe of results
+#' @return A data frame of results from the endpoint which was queried.
 #'
 #' @examples
 #' bus_query(endpoint = "speed", year_list = c(2015), weekend = FALSE, period_list = c(1,2,3),
