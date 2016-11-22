@@ -1,0 +1,15 @@
+Package: BusAPIWrapper
+Title: Simple Wrapper for NYC Bus Data API
+Version: 0.0.0.9000
+Authors@R: person("Jackson", "Whitmore", email = "first.last@example.com", role = c("aut", "cre"))
+Description: Provides a wrapper around the Bus Data API created by Kuan Butts
+    and Nathan Johnson. More information on the API can be found here: http://busdataapi1.cloudapp.net/. 
+Depends:
+    R (>= 3.3.1)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    httr,
+    jsonlite
+RoxygenNote: 5.0.1
